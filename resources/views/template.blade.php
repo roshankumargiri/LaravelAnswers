@@ -10,7 +10,7 @@
 
     <!-- Fonts -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
-</head>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
 <body>
     @include('_includes/nav/topnav')

@@ -17,4 +17,5 @@ Route::get('/', function () {
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/contact', 'PageController@contact')->name('contact');
 Route::put('/contact', 'PageController@submitContact');
-Route::resource('Questions', 'QuestionController');
+Route::resource('questions', 'QuestionController');
+Route::resource('answers', 'AnswerController', ['except' => ['index', 'create', 'show']]);
