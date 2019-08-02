@@ -7,6 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Laravel</title>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
 
     <!-- Fonts -->
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">

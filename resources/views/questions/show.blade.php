@@ -27,7 +27,9 @@
         <h4>Submit Your Own Answer:</h4>
         <textarea class="form-control" name="content" id="content" cols="30" rows="4"></textarea>
         <input type="hidden" value="{{$question->id}}" name="question_id" />
+        <br>
         <button class="btn btn-info btn-sm">Submit Answer</button>
+        <br>
 
     </form>
 

@@ -10,4 +10,8 @@ class Answer extends Model
     {
         return $this->belongsTo('App\Question');
     }
+    public function user()
+    {
+        return $this->belontsTo('App\User');
+    }
 }
