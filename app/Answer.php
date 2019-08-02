@@ -12,6 +12,6 @@ class Answer extends Model
     }
     public function user()
     {
-        return $this->belontsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 }

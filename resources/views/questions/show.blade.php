@@ -5,6 +5,12 @@
     <p class="lead">
         {{$question->description}}
     </p>
+    <p>
+        Submitted By: {{$question->user->name}}, {{$question->created_at->diffForHumans()}}
+    </p>
+    @if(Auth::id()==$question->user->id)
+    <a class="btn btn-primary btn-sm" href="{{route('questions.edit',$question->id)}}">Edit</a>
+    @endif
     <hr>
     @if($question->answers->count()>0)
     @foreach($question->answers as $answer)
@@ -13,6 +19,12 @@
             <p>
                 {{$answer->content}}
             </p>
+            <p>
+                Answered By: {{$answer->user->name}}, {{$answer->created_at->diffForHumans()}}
+            </p>
+            @if(Auth::id()==$answer->user->id)
+            <a class="btn btn-primary btn-sm" href="{{route('answers.edit',$answer->id)}}">Edit</a>
+            @endif
         </div>
     </div>
     @endforeach
@@ -33,6 +45,6 @@
 
     </form>
 
-    </di>
+</div>
 
-    @endsection
+@endsection
