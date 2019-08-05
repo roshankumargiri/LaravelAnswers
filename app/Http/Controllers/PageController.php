@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Mail;
+use App\mail\ContactForm;
 
 class PageController extends Controller
 {
@@ -13,7 +15,19 @@ class PageController extends Controller
     }
     public function contact()
     {
-        return ("This is contact page");
+        return view('contact');
+    }
+    public function sendContact(Request $request)
+    {
+
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required|min:15',
+        ]);
+
+        Mail::to('roshankumar.giri19@gmail.com')->send(new ContactForm($request));
+        return redirect('/');
     }
     public function submitContact()
     {
