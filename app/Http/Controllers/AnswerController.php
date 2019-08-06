@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Answer;
 use App\Question;
 use Auth;
+use App\Notifications\NewAnswerSubmitted;
 
 class AnswerController extends Controller
 {
@@ -30,6 +31,8 @@ class AnswerController extends Controller
         $answer->user_id = Auth::user()->id;
         $answer->question_id = $request->question_id;
         $answer->save();
+        $question = Question::findOrFail($request->question_id);
+        $question->user->notify(new NewAnswerSubmitted($answer, $question, Auth::user()->name));
         return redirect()->route('questions.show', $request->question_id);
     }
 
