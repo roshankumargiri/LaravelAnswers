@@ -9,6 +9,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+    public function routeNotificationForNexmo()
+    {
+        return $this->phone;
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -43,5 +47,11 @@ class User extends Authenticatable
     public function answers()
     {
         return $this->hasMany('App\Answer');
+    }
+
+    public function getThumbnailAttribute()
+    {
+        $thumbnail = pathinfo($this->profile_pic, PATHINFO_FILENAME) . '-thumb.jpg';
+        return $thumbnail;
     }
 }

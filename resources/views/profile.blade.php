@@ -1,10 +1,12 @@
 @extends('template')
 @section('content')
 <div class="container">
+    <img src="{{asset('storage/'.$user->thumbnail)}}" alt="" class="rounded float-right" style="max-height:100px;">
     <h1>{{$user->name}}'s Profile</h1>
     <p>
         See what {{$user->name}} has been up to on LaraAnswers.
     </p>
+    <br>
     <hr />
     <div class="row">
         <div class="col-md-6">
